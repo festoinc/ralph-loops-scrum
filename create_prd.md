@@ -356,7 +356,7 @@ Read the current `PROMPT.md` file and update the following sections:
 
 Use the Edit tool to update these sections while preserving the rest of the template.
 
-## Phase 6: Update .claude/settings.json
+## Phase 6: Update permissions
 
 Ask user if he want to define permissions or run yolo mode.
 
