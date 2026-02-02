@@ -2,54 +2,49 @@
 
 > **"Iteration beats perfection, but guided iteration beats everything."**
 
-While the classic Ralph loop is a "waterfall" approach where you feed the AI a backlog and wait for completion, **Ralf Wiggum Scrum** introduces an **iteration-based review cycle** that brings stability, feedback, and course correction to autonomous development.
+While the classic Ralph loop is a "waterfall" approach where you feed the AI a backlog and wait for completion, **Ralf Wiggum Scrum** introduces an **Eternal Development Engine**. It brings the stability of Agile review cycles to the speed of autonomous development, designed specifically for solo founders and small teams.
 
 ## 🧠 The Philosophy
 
 ### Classic Ralf (Waterfall)
-You give the AI a PRD and a checklist. It runs in a continuous loop until the checklist is done.
-*   **Risk:** If the AI makes a mistake in iteration 2, it will spend iterations 3 through 10 building on top of that mistake.
-*   **Outcome:** You might end up with a project that is "finished" but fundamentally flawed.
+You give the AI a PRD and a checklist. It runs in a finite loop until the checklist is done.
+*   **The Drift:** If the AI makes a mistake in iteration 2, it spends iterations 3 through 10 building on a broken foundation.
+*   **The Result:** You get a "finished" project that requires a total rewrite because you couldn't course-correct early.
 
-### Ralf Wiggum Scrum (Agile)
-You break the project into small, testable iterations. The AI pauses after every iteration for a human review.
-*   **Benefit:** You catch mistakes immediately. If iteration 2 is wrong, you fix it before iteration 3 starts.
-*   **Outcome:** A significantly more stable codebase and a project that actually matches your vision.
+### Ralf Wiggum Scrum (Eternal Loops)
+The engine runs in **limitless loops**. It pauses only at sprint milestones for human validation.
+*   **The Stability:** Catch "hallucination debt" immediately. Approve a sprint, and the engine launches the next one **instantly**.
+*   **The Pivot:** Not happy? Provide feedback via `review_iteration.md`, and the engine automatically refactors future sprints to match your new direction.
+*   **The Role:** You stop being a "prompter" and start being a **Product Owner**.
 
-## 🛠️ Included Tools
+## 🛠️ The Toolbox
 
-This repository contains the core logic to enable this workflow in any AI CLI (Claude Code, Gemini, Qwen, etc.):
-
-*   **`.claude/create_prd.md`**: The initialization engine. Run this first to define your project and iteration plan.
-*   **`PROMPT.md`**: The system prompt template for your autonomous agent.
-*   **Interactive Review**: Logic for the `/review-iteration` command (generated during setup).
+*   **Discovery Engine (`create_prd.md`)**: An interactive setup that interviews you to define your tech stack and atomic backlog.
+*   **Eternal Engine (`ralph.js`)**: The autonomous core that executes sprints in a continuous flow.
+*   **Interactive Review**: Logic for the `review-iteration` command to approve, fix, or pivot the engine's direction.
 
 ## 🚀 Getting Started
 
-1.  **Initialize your project:**
-    Call the `create_prd` skill to start the discovery phase:
+1.  **Initialize Discovery:**
+    Launch the interactive setup to build your PRD and sprint plan:
     ```bash
-    # Example (in Claude Code)
     /create_prd
     ```
     
-2.  **Plan your iterations:**
-    The agent will generate:
-    *   `prd.md`: High-level requirements.
-    *   `iterations/`: JSON-based task lists for each milestone.
-    *   `activity.md`: The single source of truth for progress.
+2.  **Engage the Loop:**
+    Start the eternal engine. It will work autonomously until the first milestone:
+    ```bash
+    ./ralph.js
+    ```
 
-3.  **Run the loop:**
-    Run your autonomous agent (e.g., `ralph.sh` or a shell loop) pointing to `PROMPT.md`.
+3.  **Review & Launch:**
+    When the agent pauses, review the work.
+    *   **Approve:** The next sprint starts immediately.
+    *   **Pivot:** Provide feedback to automatically adjust the roadmap.
 
-4.  **Review and Pivot:**
-    After each iteration, the agent will **STOP**. Run `/review-iteration` to give feedback and adjust future plans before continuing.
+## 📈 Why Scrum for Solo Developers?
 
-## 📈 Why Scrum?
-
-*   **Stability:** Early detection of "hallucination debt."
-*   **Flexibility:** Change your mind about a feature after seeing it in action.
-*   **Transparency:** Always know exactly what was built and how to test it via `activity.md`.
-*   **Universal:** Simple `.md` and `.json` files that fit any workflow.
-
-
+*   **Total Control:** Rely heavily on AI without losing the "steering wheel."
+*   **No Hallucination Debt:** Catch improvements when they are cheap to fix, not at the finish line.
+*   **Seamless Flow:** Designed for high-velocity builders who want a continuous stream of progress.
+*   **Small Team Optimized:** Minimal overhead, maximum autonomous output.
