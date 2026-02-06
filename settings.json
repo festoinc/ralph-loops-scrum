@@ -1,0 +1,3 @@
+{
+  "commandTemplate": "gemini --prompt ' @PROMPT.md iteration{{iterationId}} ' --output-format text"
+}
