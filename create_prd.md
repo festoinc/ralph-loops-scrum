@@ -288,7 +288,7 @@ After creating the PRD and updating PROMPT.md:
 
 1. **Create the iterations/ folder** with iteration JSON files based on the PRD's iteration plan. After creating each file, run `node ralph.js --validate <path_to_json>` to ensure it's valid.
 
-2. **Setup review_iteration.md**: Copy the content of `review_iteration.md` to `.claude/review_iteration.md` in the project root. This file acts as a skill for interactive feedback.
+2. **Setup review_iteration.md**: Copy the content of `review_iteration.md` to the project's configuration directory. This file acts as a skill for interactive feedback.
 
 3. **Create activity.md** - the single source of truth:
 ```markdown
@@ -375,7 +375,7 @@ Your PRD is ready! Please verify:
 - [ ] Tasks within each iteration are atomic
 - [ ] Success criteria defined for each iteration
 
-**.claude/review_iteration.md:**
+**Review Skill:**
 - [ ] Skill file created for interactive feedback
 
 **PROMPT.md:**
@@ -383,7 +383,7 @@ Your PRD is ready! Please verify:
 - [ ] Build/lint commands are accurate
 - [ ] Agent knows to pause after each iteration
 
-**.claude/settings.json:**
+**Permissions:**
 - [ ] All necessary CLI tools are permitted
 - [ ] No overly broad permissions added
 
