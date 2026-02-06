@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
 const ITERATIONS_DIR = path.join(process.cwd(), 'iterations');
 const PROMPT_FILE = 'prompt.md';
@@ -117,7 +117,7 @@ async function runDefault() {
       }
     }
     
-    console.log('⏲️ Waiting 60 seconds for the next check... See you soon! 👋');
+    console.log('⏲️ Waiting 60 seconds for the next check... See you soon! 👋\n');
     await new Promise(resolve => setTimeout(resolve, 60000));
   }
 }
