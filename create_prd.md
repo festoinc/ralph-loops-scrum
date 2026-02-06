@@ -1,6 +1,6 @@
 ---
 description: Create a comprehensive Product Requirements Document (PRD) for a new project with interactive discovery questions
-allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, AskUserQuestion
+allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, AskUserQuestion, RunShellCommand
 ---
 
 # PRD Creator for Ralph Wiggum Autonomous Development
@@ -262,87 +262,9 @@ When planning iterations:
 4. **Dependencies first**: If feature B depends on feature A, A comes first
 5. **End-to-end slices**: Prefer vertical slices (DB → API → UI) over horizontal layers
 
-## Phase 4: Create review_iteration.md
+## Phase 4: Review Iteration Skill
 
-Create `review_iteration.md` as a **Claude Code skill file** that interactively gathers feedback:
-
-```markdown
----
-description: Review completed iteration and gather user feedback
-allowed-tools: Read, Edit, Glob, AskUserQuestion
----
-
-# Review Iteration
-
-You are helping the user review a completed iteration and gather feedback.
-
-## Steps
-
-### 1. Read Current State
-Read `activity.md` to find:
-- Which iteration was just completed
-- What was built in that iteration
-- The success criteria for that iteration
-
-### 2. Present Summary
-Summarize to the user:
-- Iteration number and goal
-- What was built
-- Success criteria to verify
-
-### 3. Gather Feedback Interactively
-
-Use AskUserQuestion to ask:
-
-**Question 1: Overall Assessment**
-- "Looks good, proceed to next iteration"
-- "Needs minor fixes"
-- "Needs major changes"
-- "Let's pivot/change direction"
-
-**Question 2: (If not "Looks good")**
-Ask what specifically needs to change.
-
-**Question 3: Future Iterations**
-- "Keep planned iterations as-is"
-- "I want to adjust upcoming iterations"
-- "Add new requirements"
-
-### 4. Update Files
-
-**Update activity.md** - Append feedback to the current iteration's section:
-
-```
-**User Feedback:** [date]
-- Assessment: [their choice]
-- Notes: [their comments]
-- Changes requested: [if any]
-```
-
-**Update iteration JSON** - Set `approved_by_user: true` if user approves:
-```json
-{
-  "completed": true,
-  "approved_by_user": true
-}
-```
-
-### 5. Handle Restructuring
-
-If user wants changes to future iterations:
-1. Read remaining iteration files from `iterations/`
-2. Discuss proposed changes with user
-3. Update iteration JSON files as needed
-4. Update iteration plan table in `prd.md`
-
-### 6. Confirm Next Steps
-
-Tell the user:
-- What will happen next
-- When to run the agent again for the next iteration
-
-
-This creates an interactive review process - no manual file editing required.
+This project uses a dedicated skill file for reviewing iterations. The template for this skill is located at `review_iteration.md`.
 
 ## Phase 5: Update PROMPT.md
 
@@ -364,9 +286,9 @@ Ask user if he want to define permissions or run yolo mode.
 
 After creating the PRD and updating PROMPT.md:
 
-1. **Create the iterations/ folder** with iteration JSON files based on the PRD's iteration plan
+1. **Create the iterations/ folder** with iteration JSON files based on the PRD's iteration plan. After creating each file, run `node ralph.js --validate <path_to_json>` to ensure it's valid.
 
-2. **Create review_iteration.md** as a skill file (template shown in Phase 4) in `.claude/` folder
+2. **Setup review_iteration.md**: Copy the content of `review_iteration.md` to `.claude/review_iteration.md` in the project root. This file acts as a skill for interactive feedback.
 
 3. **Create activity.md** - the single source of truth:
 ```markdown
@@ -440,7 +362,7 @@ This file serves as:
 After completing all phases, present the user with a verification checklist:
 
 ```
-Your PRD is ready! Before running ralph.sh, please verify:
+Your PRD is ready! Please verify:
 
 **prd.md:**
 - [ ] Iteration plan makes sense
@@ -465,7 +387,7 @@ Your PRD is ready! Before running ralph.sh, please verify:
 - [ ] All necessary CLI tools are permitted
 - [ ] No overly broad permissions added
 
-Once verified, run: ./ralph.sh
+Once verified, run: node ralph.js
 
 **Iteration Workflow:**
 1. Agent completes iteration 1
