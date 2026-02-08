@@ -1,0 +1,35 @@
+{
+  "iteration": 1,
+  "goal": "Project setup and basic scaffold",
+  "completed": false,
+  "approved_by_user": false,
+  "tasks": [
+    {
+      "id": "1.1",
+      "category": "setup",
+      "description": "Initialize project with chosen tech stack",
+      "steps": [
+        "Create project directory structure",
+        "Initialize package.json",
+        "Install core dependencies"
+      ],
+      "done": false
+    },
+    {
+      "id": "1.2",
+      "category": "setup",
+      "description": "Configure development environment",
+      "steps": [
+        "Set up linting and formatting",
+        "Configure TypeScript (if applicable)",
+        "Create basic folder structure"
+      ],
+      "done": false
+    }
+  ],
+  "successCriteria": [
+    "Project runs with dev server",
+    "Basic page renders in browser",
+    "No console errors"
+  ]
+}
